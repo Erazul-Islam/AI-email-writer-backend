@@ -9,5 +9,6 @@ dotenv_1.default.config({ path: path_1.default.join((process.cwd(), '.env')) });
 exports.default = {
     port: process.env.PORT,
     database_url: process.env.DATABASE_URL,
-    openAPI: process.env.OPENAI_API_KEY
+    openAPI: process.env.OPENAI_API_KEY,
+    geminiAPI: process.env.GEMINI_API_KEY
 };
