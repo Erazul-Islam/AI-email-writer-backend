@@ -4,7 +4,7 @@ import { emailServices } from "./email.service";
 
 
 const generateEmialController = catchAsync(async(req,res) => {
-    const result = await emailServices.openAIemailgenerate(req.body)
+    const result = await emailServices.geminiEmailgenerate(req.body)
 
     sendResponse(res,{
         statusCode : 201,

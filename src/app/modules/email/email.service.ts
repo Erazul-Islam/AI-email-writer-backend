@@ -1,27 +1,25 @@
-import AppError from "../../errors/AppError"
-import { openAi } from "../../utils/openai"
+import gemini from "../../utils/gemini"
 
 type Message = {
     message: string
 }
 
+const geminiEmailgenerate = async (payload: Message) => {
 
-const openAIemailgenerate = async (payload: Message) => {
-    if (!openAi.apiKey) {
-        throw new AppError(500, "API key is required")
+    try {
+        const res = await gemini.models.generateContent({
+            model: "gemini-2.5-flash",
+            contents: `Write a formal, concise email requesting a leave of absence. Reason: ${payload.message}. Include subject and closing.`
+        })
+
+        return res.text
     }
-
-    const response = await openAi.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        messages: [{
-            role: 'assistant',
-            content: `Write an email based on ${payload}`
-        }]
-    })
-
-    return response.choices[0].message.content
+    
+    catch (err) {
+        console.log(err)
+    }
 }
 
 export const emailServices = {
-    openAIemailgenerate
+    geminiEmailgenerate
 }
