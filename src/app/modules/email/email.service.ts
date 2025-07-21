@@ -14,12 +14,15 @@ const geminiEmailgenerate = async (payload: Message) => {
 
         return res.text
     }
-    
+
     catch (err) {
         console.log(err)
     }
 }
 
+
+
 export const emailServices = {
-    geminiEmailgenerate
+    geminiEmailgenerate,
+
 }

@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { emailRoutes } from "../modules/email/email.route";
 import { imageRoutes } from "../modules/image/image.route";
+import { videoRoutes } from "../modules/video/video.route";
 
 const router = Router()
 
@@ -12,6 +13,10 @@ const moduleRoutes = [
     {
         path : '/image',
         route : imageRoutes
+    },
+    {
+        path : '/video',
+        route : videoRoutes
     }
 ]
 

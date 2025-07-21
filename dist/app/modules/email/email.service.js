@@ -27,5 +27,5 @@ const geminiEmailgenerate = (payload) => __awaiter(void 0, void 0, void 0, funct
     }
 });
 exports.emailServices = {
-    geminiEmailgenerate
+    geminiEmailgenerate,
 };

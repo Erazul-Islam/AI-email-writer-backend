@@ -44,6 +44,25 @@ const imageGenerator = (payload) => __awaiter(void 0, void 0, void 0, function* 
     }
     return { textResponse, base64Image };
 });
+const generateCaptionFromImage = (image) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a, _b, _c, _d, _e, _f;
+    const contents = [
+        {
+            inlineData: {
+                mimeType: "image/jpeg",
+                data: image,
+            },
+        },
+        { text: "Caption this image." },
+    ];
+    const res = yield gemini_1.default.models.generateContent({
+        model: 'gemini-2.5-flash',
+        contents: contents
+    });
+    const result = (_f = (_e = (_d = (_c = (_b = (_a = res.candidates) === null || _a === void 0 ? void 0 : _a[0]) === null || _b === void 0 ? void 0 : _b.content) === null || _c === void 0 ? void 0 : _c.parts) === null || _d === void 0 ? void 0 : _d[0]) === null || _e === void 0 ? void 0 : _e.text) !== null && _f !== void 0 ? _f : "No caption generated";
+    return result;
+});
 exports.imageService = {
-    imageGenerator
+    imageGenerator,
+    generateCaptionFromImage
 };

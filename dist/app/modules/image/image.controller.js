@@ -16,6 +16,7 @@ exports.imageController = void 0;
 const catchAsync_1 = __importDefault(require("../../utils/catchAsync"));
 const sendResponse_1 = __importDefault(require("../../utils/sendResponse"));
 const image_service_1 = require("./image.service");
+const fs_1 = __importDefault(require("fs"));
 const generateImageController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield image_service_1.imageService.imageGenerator(req.body);
     (0, sendResponse_1.default)(res, {
@@ -25,6 +26,21 @@ const generateImageController = (0, catchAsync_1.default)((req, res) => __awaite
         data: result
     });
 }));
+const generateCaptionFromImageController = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!req.file) {
+        return res.status(400).json({ message: "Image file is required" });
+    }
+    const base64Image = fs_1.default.readFileSync(req.file.path, { encoding: "base64" });
+    const result = yield image_service_1.imageService.generateCaptionFromImage(base64Image);
+    fs_1.default.unlinkSync(req.file.path);
+    (0, sendResponse_1.default)(res, {
+        statusCode: 201,
+        success: true,
+        message: "Caption generated successfully",
+        data: result
+    });
+}));
 exports.imageController = {
-    generateImageController
+    generateImageController,
+    generateCaptionFromImageController
 };

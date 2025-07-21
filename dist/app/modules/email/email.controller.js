@@ -26,5 +26,5 @@ const generateEmialController = (0, catchAsync_1.default)((req, res) => __awaite
     });
 }));
 exports.emailController = {
-    generateEmialController
+    generateEmialController,
 };
