@@ -15,6 +15,6 @@ A Node.js + TypeScript backend that uses **Gemini API** to generate AI images an
 1. Clone the repository:
 ```bash
 git clone https://github.com/Erazul-Islam/AI-email-writer-backend.git
-cd gemini-backend
+cd AI-email-writer-backend.git
 npm i
 npm run dev
