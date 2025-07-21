@@ -1,29 +1,20 @@
 # 🌟 Gemini Image & Email Generator (Backend)
 
-A simple Node.js + TypeScript backend that uses **Gemini API** to generate AI images and sends emails via an external service.
+A Node.js + TypeScript backend that uses **Gemini API** to generate AI images and compose professional emails.
 
 ---
 
-## 🔗 API Endpoints
+## 🚀 Setup Instructions
 
-### 1. **POST** `/api/v1/email`
+### Prerequisites
+- Node.js (v18+ recommended)
+- npm or yarn
+- Google Gemini API key
 
-Write a formal email to apply for a frontend developer position at Google.
-
-#### Request :
-
-```json
-{
-"message": "Write a formal email to apply for a frontend developer position at Google."
-}
-
-
-### 1. **POST** `/api/v1/image`
-
-Generate an image using Gemini AI from a prompt.
-
-#### Request:
-```json
-{
-  "message": "A cat wearing sunglasses, sitting on a beach"
-}
+### Installation
+1. Clone the repository:
+```bash
+git clone https://github.com/your-repo/gemini-backend.git
+cd gemini-backend
+npm i
+npm run dev
