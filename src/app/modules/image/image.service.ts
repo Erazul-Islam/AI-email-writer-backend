@@ -38,29 +38,29 @@ const imageGenerator = async (payload: Promt) => {
     return { textResponse, base64Image }
 }
 
-const generateCaptionFromImage = async (image: string) => {
-    const contents = [
-        {
-            inlineData: {
-                mimeType: "image/jpeg",
-                data: image,
-            },
-        },
-        { text: "Caption this image." },
-    ];
+// const generateCaptionFromImage = async (image: string) => {
+//     const contents = [
+//         {
+//             inlineData: {
+//                 mimeType: "image/jpeg",
+//                 data: image,
+//             },
+//         },
+//         { text: "Caption this image." },
+//     ];
 
-    const res = await gemini.models.generateContent({
-        model : 'gemini-2.5-flash',
-        contents : contents
-    })
+//     const res = await gemini.models.generateContent({
+//         model : 'gemini-2.5-flash',
+//         contents : contents
+//     })
 
-    const result = res.candidates?.[0]?.content?.parts?.[0]?.text ?? "No caption generated";
+//     const result = res.candidates?.[0]?.content?.parts?.[0]?.text ?? "No caption generated";
 
     
-    return result
-}
+//     return result
+// }
 
 export const imageService = {
     imageGenerator,
-    generateCaptionFromImage
+    // generateCaptionFromImage
 }
